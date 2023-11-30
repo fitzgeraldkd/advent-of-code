@@ -1,5 +1,4 @@
 import re
-from itertools import groupby
 
 from solutions import BaseSolution
 
@@ -8,24 +7,16 @@ REQUIRED_FIELDS = {"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"}
 
 
 class Year2020Day04(BaseSolution):
-    def _parse_inputs(self):
-        raw_passports = [
-            list(group)
-            for key, group in groupby(self._read_inputs(), lambda line: line == "\n")
-            if not key
-        ]
-        passports = []
+    group_delimiter = "\n"
 
-        for raw_passport in raw_passports:
-            passport = {}
-            for line in raw_passport:
-                fields = line.strip().split(" ")
-                for field in fields:
-                    key, value = field.split(":")
-                    passport[key] = value
-            passports.append(passport)
-
-        return passports
+    def _parse_group(self, lines):
+        passport = {}
+        for line in lines:
+            fields = line.strip().split(" ")
+            for field in fields:
+                key, value = field.split(":")
+                passport[key] = value
+        return passport
 
     def part_1(self):
         passports = self.inputs
