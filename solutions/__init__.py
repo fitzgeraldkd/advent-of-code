@@ -31,7 +31,7 @@ class BaseSolution:
             return [self._parse_line(line) for line in self._read_inputs()]
         else:
             return [
-                self._parse_group(group)
+                self._parse_group(list(group))
                 for key, group in groupby(
                     self._read_inputs(), lambda line: line == self.group_delimiter
                 )
