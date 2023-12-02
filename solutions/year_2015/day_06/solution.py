@@ -27,11 +27,11 @@ class Year2015Day06(BaseSolution):
 
         for command, coords in self.inputs:
             if command == "turn on":
-                lights.map(callable=lambda _: True, **coords)
+                lights.map(callable=lambda *_: True, **coords)
             elif command == "turn off":
-                lights.map(callable=lambda _: False, **coords)
+                lights.map(callable=lambda *_: False, **coords)
             else:
-                lights.map(callable=lambda current: not current, **coords)
+                lights.map(callable=lambda current, *_: not current, **coords)
 
         return len([on for on in lights.values if on])
 
@@ -40,11 +40,11 @@ class Year2015Day06(BaseSolution):
 
         for command, coords in self.inputs:
             if command == "turn on":
-                lights.map(callable=lambda current: current + 1, **coords)
+                lights.map(callable=lambda current, *_: current + 1, **coords)
             elif command == "turn off":
-                lights.map(callable=lambda current: max(0, current - 1), **coords)
+                lights.map(callable=lambda current, *_: max(0, current - 1), **coords)
             else:
-                lights.map(callable=lambda current: current + 2, **coords)
+                lights.map(callable=lambda current, *_: current + 2, **coords)
 
         return sum(lights.values)
 
