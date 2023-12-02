@@ -5,6 +5,8 @@ from solutions import BaseSolution
 
 
 class Year2015Day06(BaseSolution):
+    module_file = __file__
+
     def _parse_line(self, line: str):
         split_line = re.split(r"(turn on|turn off|toggle)", line.strip())
         coordinates = [
@@ -50,4 +52,4 @@ class Year2015Day06(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2015Day06(__file__).print_results()
+    Year2015Day06().print_results()

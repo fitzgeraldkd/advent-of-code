@@ -2,6 +2,8 @@ from solutions import BaseSolution
 
 
 class Year2015Day02(BaseSolution):
+    module_file = __file__
+
     def _parse_line(self, line: str):
         return [int(dimension) for dimension in line.strip().split("x")]
 
@@ -27,4 +29,4 @@ class Year2015Day02(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2015Day02(__file__).print_results()
+    Year2015Day02().print_results()

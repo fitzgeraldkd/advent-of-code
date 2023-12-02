@@ -38,6 +38,8 @@ def get_value(wires, label, calculated_wires):
 
 
 class Year2015Day07(BaseSolution):
+    module_file = __file__
+
     def _parse_line(self, line: str):
         split_input = line.strip().split(" -> ")
 
@@ -77,4 +79,4 @@ class Year2015Day07(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2015Day07(__file__).print_results()
+    Year2015Day07().print_results()

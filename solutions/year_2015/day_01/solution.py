@@ -2,6 +2,8 @@ from solutions import BaseSolution
 
 
 class Year2015Day01(BaseSolution):
+    module_file = __file__
+
     def _parse_inputs(self):
         return super()._parse_inputs()[0]
 
@@ -20,4 +22,4 @@ class Year2015Day01(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2015Day01(__file__).print_results()
+    Year2015Day01().print_results()

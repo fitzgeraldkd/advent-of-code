@@ -4,6 +4,8 @@ from solutions import BaseSolution
 
 
 class Year2020Day13(BaseSolution):
+    module_file = __file__
+
     def _parse_inputs(self):
         lines = super()._parse_inputs()
         return int(lines[0]), [int(n) if n != "x" else n for n in lines[1].split(",")]
@@ -42,4 +44,4 @@ class Year2020Day13(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2020Day13(__file__).print_results()
+    Year2020Day13().print_results()

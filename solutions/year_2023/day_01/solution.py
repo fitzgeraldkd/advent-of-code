@@ -24,6 +24,8 @@ TEXT_TO_INT = {
 
 
 class Year2023Day01(BaseSolution):
+    module_file = __file__
+
     def part_1(self):
         total = 0
 
@@ -58,4 +60,4 @@ class Year2023Day01(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2023Day01(__file__).print_results()
+    Year2023Day01().print_results()

@@ -11,21 +11,25 @@ def hash(input: str):
 
 
 class Year2015Day04(BaseSolution):
+    module_file = __file__
+
     def _parse_inputs(self):
         return super()._parse_inputs()[0]
 
     def part_1(self):
+        target = self.inputs
         for i in range(MAX_ATTEMPTS):
-            hashed = hash(f"{self.inputs}{i}")
+            hashed = hash(f"{target}{i}")
             if hashed.startswith("00000"):
                 return i
 
     def part_2(self):
+        target = self.inputs
         for i in range(MAX_ATTEMPTS):
-            hashed = hash(f"{self.inputs}{i}")
+            hashed = hash(f"{target}{i}")
             if hashed.startswith("000000"):
                 return i
 
 
 if __name__ == "__main__":
-    Year2015Day04(__file__).print_results()
+    Year2015Day04().print_results()

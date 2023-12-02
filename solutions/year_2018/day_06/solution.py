@@ -3,8 +3,6 @@ from collections import Counter
 
 from solutions import BaseSolution
 
-PART_2_TARGET_DISTANCE = 10000
-
 
 def get_bounding_box(coordinates):
     min_x = min(coordinates, key=lambda coordinate: coordinate[0])[0]
@@ -15,6 +13,9 @@ def get_bounding_box(coordinates):
 
 
 class Year2018Day06(BaseSolution):
+    PART_2_TARGET_DISTANCE = 10000
+    module_file = __file__
+
     def _parse_line(self, line: str):
         return tuple(int(coordinate) for coordinate in line.strip().split(", "))
 
@@ -62,10 +63,10 @@ class Year2018Day06(BaseSolution):
                     abs(coordinate[0] - x) + abs(coordinate[1] - y)
                     for coordinate in coordinates
                 )
-                region_size += 1 if total_distance < PART_2_TARGET_DISTANCE else 0
+                region_size += 1 if total_distance < self.PART_2_TARGET_DISTANCE else 0
 
         return region_size
 
 
 if __name__ == "__main__":
-    Year2018Day06(__file__).print_results()
+    Year2018Day06().print_results()

@@ -6,13 +6,13 @@ from solutions.year_2015.day_07.solution import Year2015Day07
 
 class TestSolution(BaseTestCase):
     def setUp(self):
-        self.solution = Year2015Day07(__file__)
+        self.solution = Year2015Day07()
         self.answers = (3176, 14710)
 
 
 class TestSample(BaseTestCase):
     def setUp(self):
-        self.solution = Year2015Day07(__file__, "sample.txt")
+        self.solution = Year2015Day07("sample.txt")
 
     def test_part_1(self):
         with patch("solutions.year_2015.day_07.solution.TARGET_WIRE", "d"):

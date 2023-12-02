@@ -4,6 +4,8 @@ from solutions import BaseSolution
 
 
 class Year2015Day05(BaseSolution):
+    module_file = __file__
+
     def part_1(self):
         nice_string_count = 0
 
@@ -40,4 +42,4 @@ class Year2015Day05(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2015Day05(__file__).print_results()
+    Year2015Day05().print_results()

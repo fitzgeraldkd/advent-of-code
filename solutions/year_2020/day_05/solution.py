@@ -15,6 +15,8 @@ def binary_search(min: int, max: int, characters: str):
 
 
 class Year2020Day05(BaseSolution):
+    module_file = __file__
+
     def _parse_line(self, line: str):
         row = binary_search(0, 127, line[:7])
         col = binary_search(0, 7, line[7:])
@@ -33,4 +35,4 @@ class Year2020Day05(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2020Day05(__file__).print_results()
+    Year2020Day05().print_results()

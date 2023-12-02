@@ -18,6 +18,8 @@ def count_encounters(grid: SquareGrid, slope: Tuple[int, int]) -> int:
 
 
 class Year2020Day03(BaseSolution):
+    module_file = __file__
+
     def _parse_inputs(self):
         lines = super()._parse_inputs()
         grid = SquareGrid(default=lambda: ".")
@@ -43,4 +45,4 @@ class Year2020Day03(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2020Day03(__file__).print_results()
+    Year2020Day03().print_results()

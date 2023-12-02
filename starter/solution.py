@@ -2,6 +2,8 @@ from solutions import BaseSolution
 
 
 class Year20XXDayYY(BaseSolution):
+    module_file = __file__
+
     def part_1(self):
         return None
 
@@ -10,4 +12,4 @@ class Year20XXDayYY(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year20XXDayYY(__file__).print_results()
+    Year20XXDayYY().print_results()

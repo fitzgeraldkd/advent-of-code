@@ -4,6 +4,8 @@ from solutions import BaseSolution
 
 
 class Year2020Day02(BaseSolution):
+    module_file = __file__
+
     def _parse_line(self, line: str):
         args, char, password = line.strip().split(" ")
         arg_a, arg_b = [int(arg) for arg in args.split("-")]
@@ -29,4 +31,4 @@ class Year2020Day02(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2020Day02(__file__).print_results()
+    Year2020Day02().print_results()

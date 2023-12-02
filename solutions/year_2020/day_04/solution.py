@@ -8,6 +8,7 @@ REQUIRED_FIELDS = {"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"}
 
 class Year2020Day04(BaseSolution):
     group_delimiter = "\n"
+    module_file = __file__
 
     def _parse_group(self, lines):
         passport = {}
@@ -64,4 +65,4 @@ class Year2020Day04(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2020Day04(__file__).print_results()
+    Year2020Day04().print_results()

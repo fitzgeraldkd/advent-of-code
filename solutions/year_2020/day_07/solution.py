@@ -18,6 +18,8 @@ def get_total_bag_count(bags, bag: str):
 
 
 class Year2020Day07(BaseSolution):
+    module_file = __file__
+
     def _parse_line(self, line: str):
         container, joined_content = line.strip()[:-1].split(" bags contain ")
         contents = {}
@@ -44,4 +46,4 @@ class Year2020Day07(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2020Day07(__file__).print_results()
+    Year2020Day07().print_results()

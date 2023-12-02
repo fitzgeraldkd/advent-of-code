@@ -5,6 +5,7 @@ from solutions import BaseSolution
 
 class Year2020Day06(BaseSolution):
     group_delimiter = "\n"
+    module_file = __file__
 
     def _parse_group(self, lines):
         affirmatives = defaultdict(int)
@@ -26,4 +27,4 @@ class Year2020Day06(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2020Day06(__file__).print_results()
+    Year2020Day06().print_results()

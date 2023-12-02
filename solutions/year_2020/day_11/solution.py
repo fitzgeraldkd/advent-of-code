@@ -31,6 +31,8 @@ def get_visible_seats(grid: SquareGrid, x: int, y: int):
 
 
 class Year2020Day11(BaseSolution):
+    module_file = __file__
+
     def _parse_inputs(self):
         lines = super()._parse_inputs()
         grid = SquareGrid(default=lambda: ".")
@@ -102,4 +104,4 @@ class Year2020Day11(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2020Day11(__file__).print_results()
+    Year2020Day11().print_results()

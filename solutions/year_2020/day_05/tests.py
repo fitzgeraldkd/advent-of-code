@@ -6,13 +6,13 @@ from solutions.year_2020.day_05.solution import Year2020Day05
 
 class TestSolution(BaseTestCase):
     def setUp(self):
-        self.solution = Year2020Day05(__file__)
+        self.solution = Year2020Day05()
         self.answers = (976, 685)
 
 
 class TestSample(BaseTestCase):
     def setUp(self):
-        self.solution = Year2020Day05(__file__, "sample.txt")
+        self.solution = Year2020Day05("sample.txt")
 
     def test_part_1(self):
         self.assertListEqual(self.solution.inputs, [357, 567, 119, 820])

@@ -5,6 +5,8 @@ from solutions import BaseSolution
 
 
 class Year2018Day02(BaseSolution):
+    module_file = __file__
+
     def part_1(self):
         ids = self.inputs
         counted_ids = [Counter(id).items() for id in ids]
@@ -41,4 +43,4 @@ class Year2018Day02(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2018Day02(__file__).print_results()
+    Year2018Day02().print_results()

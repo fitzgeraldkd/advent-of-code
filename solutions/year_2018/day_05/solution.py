@@ -14,6 +14,8 @@ def react(polymer: str):
 
 
 class Year2018Day05(BaseSolution):
+    module_file = __file__
+
     def _parse_inputs(self):
         return super()._parse_inputs()[0]
 
@@ -35,4 +37,4 @@ class Year2018Day05(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2018Day05(__file__).print_results()
+    Year2018Day05().print_results()

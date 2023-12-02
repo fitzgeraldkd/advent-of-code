@@ -28,6 +28,8 @@ def test_permutations(adapters: List[int], index_range: Tuple[int, int]):
 
 
 class Year2020Day10(BaseSolution):
+    module_file = __file__
+
     def _parse_line(self, line: str):
         return int(line.strip())
 
@@ -89,4 +91,4 @@ class Year2020Day10(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2020Day10(__file__).print_results()
+    Year2020Day10().print_results()

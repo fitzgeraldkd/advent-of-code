@@ -6,9 +6,16 @@ from typing import Any, List, Optional, Tuple
 
 class BaseSolution:
     group_delimiter: Optional[str] = None
+    module_file = __file__
 
-    def __init__(self, file: str, inputs_filename="inputs.txt"):
-        self.inputs_path = os.path.join(os.path.dirname(file), inputs_filename)
+    def __init__(self, inputs_filename="inputs.txt", module_file: str = None):
+        self.inputs_filename = inputs_filename
+
+        if module_file:
+            self.module_file = module_file
+
+    def _get_inputs_path(self):
+        return os.path.join(os.path.dirname(self.module_file), self.inputs_filename)
 
     def _parse_line(self, line: str):
         """
@@ -42,7 +49,7 @@ class BaseSolution:
         """
         Read the inputs text file, without making any changes.
         """
-        with open(self.inputs_path) as inputs:
+        with open(self._get_inputs_path()) as inputs:
             lines = inputs.readlines()
 
         return lines
@@ -64,7 +71,7 @@ class BaseSolution:
 
 class BaseTestCase(unittest.TestCase):
     def setUp(self):
-        self.solution = BaseSolution(__file__)
+        self.solution = BaseSolution()
         self.answers: Tuple[Any, Any] = (None, None)
 
     def test_part_1(self):

@@ -10,6 +10,8 @@ MAX_COLORS = {
 
 
 class Year2023Day02(BaseSolution):
+    module_file = __file__
+
     def _parse_line(self, line: str):
         game_id, rounds = line.strip().split(": ")
         rounds = [
@@ -48,4 +50,4 @@ class Year2023Day02(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2023Day02(__file__).print_results()
+    Year2023Day02().print_results()

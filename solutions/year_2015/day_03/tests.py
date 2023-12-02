@@ -6,13 +6,13 @@ from solutions.year_2015.day_03.solution import Year2015Day03
 
 class TestSolution(BaseTestCase):
     def setUp(self):
-        self.solution = Year2015Day03(__file__)
+        self.solution = Year2015Day03()
         self.answers = (2081, 2341)
 
 
 class TestSample(BaseTestCase):
     def setUp(self):
-        self.solution = Year2015Day03(__file__)
+        self.solution = Year2015Day03()
 
     def test_part_1(self):
         with patch.object(Year2015Day03, "inputs", ">"):

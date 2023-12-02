@@ -10,6 +10,8 @@ DIRECTION_MAP = {
 
 
 class Year2015Day03(BaseSolution):
+    module_file = __file__
+
     def _parse_inputs(self):
         return super()._parse_inputs()[0]
 
@@ -42,4 +44,4 @@ class Year2015Day03(BaseSolution):
 
 
 if __name__ == "__main__":
-    Year2015Day03(__file__).print_results()
+    Year2015Day03().print_results()
