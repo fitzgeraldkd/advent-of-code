@@ -1,6 +1,32 @@
 # Advent of Code
 
-Here's my repo for my [Advent of Code](https://adventofcode.com/) solutions. Most solutions were my first pass at getting the correct answer, so many will be far from optimal.
+Here's my repo for my [Advent of Code](https://adventofcode.com/) solutions. I'm currently migrating my old repo over to this one now that I have a clearer idea of how I want to structure everything.
+
+## Setup
+
+Install required packages with:
+```bash
+pip install -r requirements.txt
+```
+
+A directory for a new puzzle can be created by running (this example sets up the directory for year 2015 day 1):
+```bash
+./init.sh 2015 1
+```
+
+## Testing
+
+The tests for all puzzles can be run with:
+
+```bash
+python -m unittest
+```
+
+Or a specifiy year or day can be run with:
+```bash
+python -m unittest discover solutions.year_2015
+python -m unittest discover solutions.year_2015.day_01
+```
 
 ## Progress
 
