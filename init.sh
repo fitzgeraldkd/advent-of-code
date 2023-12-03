@@ -1,6 +1,4 @@
 #! /bin/bash
-echo $1 $2
-
 source_directory="./starter"
 target_directory="./solutions/year_$1/day_$(printf %02d $2)"
 
