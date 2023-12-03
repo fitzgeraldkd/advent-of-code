@@ -15,7 +15,7 @@ class Graph:
             self.nodes[end].add_neighbor(start, weight)
 
     def dijkstra(self, start):
-        D = {self.nodes[v].id: float('inf') for v in self.nodes}
+        D = {self.nodes[v].id: float("inf") for v in self.nodes}
         D[start] = 0
         prev = set()
 

@@ -10,7 +10,7 @@ class Year2015Day10(BaseSolution):
     def look_and_say(self, input: str):
         count = 0
         previous = None
-        output = ''
+        output = ""
 
         for char in input:
             if previous is None or char == previous:

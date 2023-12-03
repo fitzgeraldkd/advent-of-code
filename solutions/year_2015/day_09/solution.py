@@ -4,7 +4,10 @@ import re
 from classes.graph import Graph
 from solutions import BaseSolution
 
-def get_distances(graph, start: str, previous_key: tuple, distances, remaining_nodes: set):
+
+def get_distances(
+    graph, start: str, previous_key: tuple, distances, remaining_nodes: set
+):
     previous_distance = distances[previous_key] if previous_key in distances else 0
 
     for node in graph.nodes[start].adjacent.keys():
@@ -17,19 +20,26 @@ def get_distances(graph, start: str, previous_key: tuple, distances, remaining_n
 
         sub_remaining_nodes = remaining_nodes.copy()
         sub_remaining_nodes.remove(node)
-        get_distances(graph, start=node, previous_key=key, distances=distances, remaining_nodes=sub_remaining_nodes)
+        get_distances(
+            graph,
+            start=node,
+            previous_key=key,
+            distances=distances,
+            remaining_nodes=sub_remaining_nodes,
+        )
 
     return distances
+
 
 class Year2015Day09(BaseSolution):
     module_file = __file__
 
     def _parse_line(self, line: str):
-        split_input = re.split(r' to | = ', line.strip())
+        split_input = re.split(r" to | = ", line.strip())
         return {
-            'start': split_input[0],
-            'end': split_input[1],
-            'distance': int(split_input[2])
+            "start": split_input[0],
+            "end": split_input[1],
+            "distance": int(split_input[2]),
         }
 
     def part_1(self):
@@ -38,16 +48,21 @@ class Year2015Day09(BaseSolution):
         locations = set()
 
         for input in inputs:
-            locations.add(input['start'])
-            locations.add(input['end'])
-            graph.add_node(input['start'])
-            graph.add_node(input['end'])
-            graph.connect_nodes(input['start'], input['end'], input['distance'])
+            locations.add(input["start"])
+            locations.add(input["end"])
+            graph.add_node(input["start"])
+            graph.add_node(input["end"])
+            graph.connect_nodes(input["start"], input["end"], input["distance"])
 
         distances = {}
         for node in graph.nodes.keys():
-            distances = get_distances(graph, start=node, previous_key=(node, ), distances=distances,
-                                    remaining_nodes=set(filter(lambda n: n != node, graph.nodes.keys())))
+            distances = get_distances(
+                graph,
+                start=node,
+                previous_key=(node,),
+                distances=distances,
+                remaining_nodes=set(filter(lambda n: n != node, graph.nodes.keys())),
+            )
 
         min_distance = math.inf
         for key in distances.keys():
@@ -62,16 +77,21 @@ class Year2015Day09(BaseSolution):
         locations = set()
 
         for input in inputs:
-            locations.add(input['start'])
-            locations.add(input['end'])
-            graph.add_node(input['start'])
-            graph.add_node(input['end'])
-            graph.connect_nodes(input['start'], input['end'], input['distance'])
+            locations.add(input["start"])
+            locations.add(input["end"])
+            graph.add_node(input["start"])
+            graph.add_node(input["end"])
+            graph.connect_nodes(input["start"], input["end"], input["distance"])
 
         distances = {}
         for node in graph.nodes.keys():
-            distances = get_distances(graph, start=node, previous_key=(node, ), distances=distances,
-                                    remaining_nodes=set(filter(lambda n: n != node, graph.nodes.keys())))
+            distances = get_distances(
+                graph,
+                start=node,
+                previous_key=(node,),
+                distances=distances,
+                remaining_nodes=set(filter(lambda n: n != node, graph.nodes.keys())),
+            )
 
         max_distance = 0
         for key in distances.keys():
