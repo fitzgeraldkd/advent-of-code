@@ -1,5 +1,4 @@
 import re
-from typing import Set
 
 from solutions import BaseSolution
 
