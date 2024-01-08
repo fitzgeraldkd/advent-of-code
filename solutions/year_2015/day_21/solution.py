@@ -65,75 +65,45 @@ class Year2015Day21(BaseSolution):
 
         winner = "player" if player_turns_to_win <= boss_turns_to_win else "boss"
 
-        return (winner, min(player_turns_to_win, boss_turns_to_win))
+        return winner
+
+    def run_simulation(self, equipment, boss, results_costs):
+        player, cost = self.get_stats(equipment)
+
+        winner = self.fight(player, boss)
+        if winner == "player":
+            results_costs["win"].append(cost)
+        else:
+            results_costs["loss"].append(cost)
+
+    def get_winning_costs(self):
+        boss = self.inputs
+
+        results_costs = {"win": [], "loss": []}
+
+        ring_sets = []
+        ring_sets.extend([ring] for ring in RINGS)
+        ring_sets.extend(itertools.permutations(RINGS, 2))
+
+        for weapon in WEAPONS:
+            self.run_simulation([weapon], boss, results_costs)
+
+            for ring_set in ring_sets:
+                self.run_simulation([weapon, *ring_set], boss, results_costs)
+
+            for armor in ARMOR:
+                self.run_simulation([weapon, armor], boss, results_costs)
+
+                for ring_set in ring_sets:
+                    self.run_simulation([weapon, armor, *ring_set], boss, results_costs)
+
+        return results_costs
 
     def part_1(self):
-        boss = self.inputs
-
-        winning_costs = []
-
-        def run_simulation(equipment):
-            player, cost = self.get_stats(equipment)
-
-            winner, _ = self.fight(player, boss)
-            if winner == "player":
-                winning_costs.append(cost)
-
-        ring_sets = []
-        ring_sets.extend([ring] for ring in RINGS)
-        ring_sets.extend(itertools.permutations(RINGS, 2))
-
-        for weapon in WEAPONS:
-            run_simulation([weapon])
-
-            for ring_set in ring_sets:
-                equipment = [weapon]
-                equipment.extend(ring_set)
-                run_simulation(equipment)
-
-            for armor in ARMOR:
-                run_simulation([weapon, armor])
-
-                for ring_set in ring_sets:
-                    equipment = [weapon, armor]
-                    equipment.extend(ring_set)
-                    run_simulation(equipment)
-
-        return min(winning_costs)
+        return min(self.get_winning_costs()["win"])
 
     def part_2(self):
-        boss = self.inputs
-
-        winning_costs = []
-
-        def run_simulation(equipment):
-            player, cost = self.get_stats(equipment)
-
-            winner, _ = self.fight(player, boss)
-            if winner == "boss":
-                winning_costs.append(cost)
-
-        ring_sets = []
-        ring_sets.extend([ring] for ring in RINGS)
-        ring_sets.extend(itertools.permutations(RINGS, 2))
-
-        for weapon in WEAPONS:
-            run_simulation([weapon])
-
-            for ring_set in ring_sets:
-                equipment = [weapon]
-                equipment.extend(ring_set)
-                run_simulation(equipment)
-
-            for armor in ARMOR:
-                run_simulation([weapon, armor])
-
-                for ring_set in ring_sets:
-                    equipment = [weapon, armor]
-                    equipment.extend(ring_set)
-                    run_simulation(equipment)
-
-        return max(winning_costs)
+        return max(self.get_winning_costs()["loss"])
 
 
 if __name__ == "__main__":

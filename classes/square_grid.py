@@ -71,7 +71,7 @@ class SquareGrid:
         """
         for y in range(self.min_y, self.max_y + 1):
             line = ""
-            for x in range(self.min_x, self.max_y + 1):
+            for x in range(self.min_x, self.max_x + 1):
                 line += self.get(x, y)
             print(line)
 
@@ -82,3 +82,11 @@ class SquareGrid:
     @property
     def values(self):
         return self._grid.values()
+
+    @property
+    def x_range(self):
+        return range(self.min_x, self.max_x + 1)
+
+    @property
+    def y_range(self):
+        return range(self.min_y, self.max_y + 1)
