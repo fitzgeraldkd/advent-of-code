@@ -38,11 +38,7 @@ class Year2015Day21(BaseSolution):
 
     def _parse_inputs(self):
         hp, damage, armor = super()._parse_inputs()
-        return {
-            "hp": hp,
-            "damage": damage,
-            "armor": armor,
-        }
+        return {"hp": hp, "damage": damage, "armor": armor}
 
     def get_stats(self, equipment):
         damage = 0
