@@ -6,8 +6,8 @@ class Year2016Day01(BaseSolution):
     module_file = __file__
 
     def _parse_line(self, line: str):
-        return line.strip().split(', ')
-    
+        return line.strip().split(", ")
+
     def _parse_inputs(self):
         return super()._parse_inputs()[0]
 

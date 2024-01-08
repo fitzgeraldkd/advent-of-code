@@ -16,13 +16,13 @@ class TestSample(BaseTestCase):
         self.answers = (None, None)
 
     def test_part_1(self):
-        with patch.object(Year2016Day01, 'inputs', ['R2', 'L3']):
+        with patch.object(Year2016Day01, "inputs", ["R2", "L3"]):
             self.assertEqual(self.solution.part_1(), 5)
-        with patch.object(Year2016Day01, 'inputs', ['R2', 'R2', 'R2']):
+        with patch.object(Year2016Day01, "inputs", ["R2", "R2", "R2"]):
             self.assertEqual(self.solution.part_1(), 2)
-        with patch.object(Year2016Day01, 'inputs', ['R5', 'L5', 'R5', 'R3']):
+        with patch.object(Year2016Day01, "inputs", ["R5", "L5", "R5", "R3"]):
             self.assertEqual(self.solution.part_1(), 12)
 
     def test_part_2(self):
-        with patch.object(Year2016Day01, 'inputs', ['R8', 'R4', 'R4', 'R8']):
+        with patch.object(Year2016Day01, "inputs", ["R8", "R4", "R4", "R8"]):
             self.assertEqual(self.solution.part_2(), 4)

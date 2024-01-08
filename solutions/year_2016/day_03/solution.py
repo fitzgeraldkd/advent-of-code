@@ -7,7 +7,7 @@ class Year2016Day03(BaseSolution):
     module_file = __file__
 
     def _parse_line(self, line: str):
-        return [int(x) for x in re.findall(r'\d+', line.strip())]
+        return [int(x) for x in re.findall(r"\d+", line.strip())]
 
     def part_1(self):
         inputs = self.inputs

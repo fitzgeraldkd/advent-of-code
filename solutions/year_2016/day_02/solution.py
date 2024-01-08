@@ -7,11 +7,7 @@ class Year2016Day02(BaseSolution):
     def part_1(self):
         inputs = self.inputs
 
-        KEYPAD = [
-            ['1', '2', '3'],
-            ['4', '5', '6'],
-            ['7', '8', '9']
-        ]
+        KEYPAD = [["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]]
 
         code = []
 
@@ -19,27 +15,27 @@ class Year2016Day02(BaseSolution):
         y = 1
         for input in inputs:
             for direction in input:
-                if direction == 'U':
-                    y = max(y-1, 0)
-                elif direction == 'D':
-                    y = min(y+1, 2)
-                elif direction == 'L':
-                    x = max(x-1, 0)
-                elif direction == 'R':
-                    x = min(x+1, 2)
+                if direction == "U":
+                    y = max(y - 1, 0)
+                elif direction == "D":
+                    y = min(y + 1, 2)
+                elif direction == "L":
+                    x = max(x - 1, 0)
+                elif direction == "R":
+                    x = min(x + 1, 2)
             code.append(KEYPAD[y][x])
 
-        return ''.join(code)
+        return "".join(code)
 
     def part_2(self):
         inputs = self.inputs
 
         KEYPAD = [
-            [None, None, '1', None, None],
-            [None, '2', '3', '4', None],
-            ['5', '6', '7', '8', '9'],
-            [None, 'A', 'B', 'C', None],
-            [None, None, 'D', None, None]
+            [None, None, "1", None, None],
+            [None, "2", "3", "4", None],
+            ["5", "6", "7", "8", "9"],
+            [None, "A", "B", "C", None],
+            [None, None, "D", None, None],
         ]
 
         code = []
@@ -48,25 +44,25 @@ class Year2016Day02(BaseSolution):
         y = 2
         for input in inputs:
             for direction in input:
-                if direction == 'U' and y > 0:
+                if direction == "U" and y > 0:
                     new_y = y - 1
                     if KEYPAD[new_y][x] is not None:
                         y = new_y
-                elif direction == 'D' and y < 4:
+                elif direction == "D" and y < 4:
                     new_y = y + 1
                     if KEYPAD[new_y][x] is not None:
                         y = new_y
-                elif direction == 'L' and x > 0:
+                elif direction == "L" and x > 0:
                     new_x = x - 1
                     if KEYPAD[y][new_x] is not None:
                         x = new_x
-                elif direction == 'R' and x < 4:
+                elif direction == "R" and x < 4:
                     new_x = x + 1
                     if KEYPAD[y][new_x] is not None:
                         x = new_x
             code.append(KEYPAD[y][x])
 
-        return ''.join(code)
+        return "".join(code)
 
 
 if __name__ == "__main__":
