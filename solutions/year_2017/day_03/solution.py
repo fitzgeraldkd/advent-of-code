@@ -1,5 +1,7 @@
 import math
 
+from classes.n_dimensional_grid import NDimensionalGrid
+from common.pathing import move, rotate
 from solutions import BaseSolution
 
 
@@ -36,44 +38,23 @@ class Year2017Day03(BaseSolution):
     def part_2(self):
         value = self.inputs
 
-        grid = { 0: { 0: 1 } }
+        grid = NDimensionalGrid(dimensions=2, default=lambda: 0)
+        grid.set(1, 0, 0)
 
-        x, y, max_x, min_x, max_y, min_y = 1, 0, 1, 0, 0, 0
-        direction = 'up'
+        position = (1, 0)
+        direction = (0, -1)
 
         while True:
-            new_value = 0
-            for dx in [-1, 0, 1]:
-                for dy in [-1, 0, 1]:
-                    new_value += grid.get(y+dy, {}).get(x+dx, 0)
+            new_value = sum(grid.get_adjacent(*position, include_diagonal=True).values())
 
             if new_value > value:
                 return new_value
-            if y in grid:
-                grid[y][x] = new_value
-            else:
-                grid[y] = { x: new_value }
-
-            if direction == 'right':
-                x += 1
-                if x > max_x:
-                    max_x = x
-                    direction = 'up'
-            elif direction == 'up':
-                y -= 1
-                if y < min_y:
-                    min_y = y
-                    direction = 'left'
-            elif direction == 'left':
-                x -= 1
-                if x < min_x:
-                    min_x = x
-                    direction = 'down'
-            else:
-                y += 1
-                if y > max_y:
-                    max_y = y
-                    direction = 'right'
+            
+            grid.set(new_value, *position)
+            position = move(position, direction)
+            
+            if not grid.is_in_bounding_box(*position):
+                direction = rotate(direction, 'L')
 
 
 if __name__ == "__main__":

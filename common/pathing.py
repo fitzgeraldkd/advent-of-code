@@ -17,7 +17,7 @@ def move(position, direction, magnitude=1):
     )
 
 
-def rotate(facing, rotation):
+def rotate(facing: Tuple[int, int], rotation: str):
     direction_index = DIRECTIONS.index(facing)
     if rotation == "R":
         new_index = (direction_index + 1) % len(DIRECTIONS)
