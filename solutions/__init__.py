@@ -1,4 +1,5 @@
 import os
+import signal
 import unittest
 from itertools import groupby
 from typing import Any, List, Optional, Tuple
@@ -75,7 +76,29 @@ class BaseTestCase(unittest.TestCase):
         self.answers: Tuple[Any, Any] = (None, None)
 
     def test_part_1(self):
-        self.assertEqual(self.solution.part_1(), self.answers[0])
+        with test_timeout(15):
+            self.assertEqual(self.solution.part_1(), self.answers[0])
 
     def test_part_2(self):
-        self.assertEqual(self.solution.part_2(), self.answers[1])
+        with test_timeout(15):
+            self.assertEqual(self.solution.part_2(), self.answers[1])
+
+class TestTimeout(Exception):
+    pass
+
+class test_timeout:
+  def __init__(self, seconds: int, error_message: str = None):
+    if error_message is None:
+      error_message = 'test timed out after {}s.'.format(seconds)
+    self.seconds = seconds
+    self.error_message = error_message
+
+  def handle_timeout(self, signum, frame):
+    raise TestTimeout(self.error_message)
+
+  def __enter__(self):
+    signal.signal(signal.SIGALRM, self.handle_timeout)
+    signal.alarm(self.seconds)
+
+  def __exit__(self, exc_type, exc_val, exc_tb):
+    signal.alarm(0)
