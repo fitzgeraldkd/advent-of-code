@@ -41,6 +41,11 @@ class SquareGrid:
         self._grid[(x, y)] = value
         self._update_bounding_box(x, y)
 
+    def each(self, callable: Callable[[T, int, int], None]):
+        for x in self.x_range:
+            for y in self.y_range:
+                callable(self.get(x, y), x, y)
+
     def map(
         self,
         x1: int,
