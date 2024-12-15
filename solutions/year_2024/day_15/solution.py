@@ -1,7 +1,6 @@
 from classes.square_grid import SquareGrid
 from common.pathing import move
 from solutions import BaseSolution
-import time
 
 DIRECTIONS = {
     "<": (-1, 0),

@@ -28,6 +28,11 @@ python -m unittest discover solutions.year_2015
 python -m unittest discover solutions.year_2015.day_01
 ```
 
+Or to run a specific day's solution from outside the test environment:
+```bash
+python -m solutions.year_2015.day_01.solution
+```
+
 ## Progress
 
 |        | 2015  | 2016  | 2017  | 2018  | 2019  | 2020  | 2021  | 2022  | 2023  | 2024  |
